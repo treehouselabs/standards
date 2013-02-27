@@ -9,3 +9,11 @@ Naming conventions
 * The command's class name is a CamelCased concatenation of the namespaces
 
 For example a command that creates a user in the CmsBundle should be named `cms:user:create` and located in `<CmsBundle>/Command/UserCreateCommand.php`.
+
+## Bundles
+
+* Composer name: fm/feature-bundle
+* GitHub repo name: FeatureBundle
+* Namespace binnen Symfony: FM\FeatureBundle
+* Bundle naam binnen Symfony: FMFeatureBundle
+
