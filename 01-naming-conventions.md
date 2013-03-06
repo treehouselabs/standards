@@ -24,7 +24,7 @@ Internal bundles (in `src` folder):
 
 ## Services
 
-All services *must be* be prefixed with the vendor/bundle name, eg: `fm_search.foo`. The rest of the id *should* reference the class' namespace. However if the context of the service implies something different, this *may* vary.
+All services *must be* be prefixed with the vendor/bundle name, eg: `fm_search.foo`. The rest of the id *should* follow the rest of the class' namespace, but this *may* vary. For example if a service is located at `FM\CacheBundle\EventListener\EntityListener.php`, the id could be `fm_cache.listener.entity`.
 
 ## Events, listeners and subscribers
 
