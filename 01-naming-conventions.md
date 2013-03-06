@@ -3,12 +3,12 @@ Naming conventions
 
 ## Commands
 
-* Commands introduced by bundles should be prefixed with the (short) bundle name or alias. 
-* Further naming should be done using regular namespace conventions (from more generic to less generic). 
+* Commands introduced by bundles *should be* prefixed with the (short) bundle name or alias. 
+* Further naming *should be* done using regular namespace conventions (from more generic to less generic). 
 * Try to group objects/entities in a namespace, but to limit the total to 3 parts.
 * The command's class name is a CamelCased concatenation of the namespaces
 
-For example a command that creates a user in the CmsBundle should be named `cms:user:create` and located in `<CmsBundle>/Command/UserCreateCommand.php`.
+For example a command that creates a user in the CmsBundle *should be* named `cms:user:create` and located in `<CmsBundle>/Command/UserCreateCommand.php`.
 
 ## Bundles
 
@@ -22,9 +22,13 @@ Internal bundles (in `src` folder):
 * Namespace: `FM\FeatureBundle`
 * Bundle name: `FMFeatureBundle`
 
+## Services
+
+All services *must be* be prefixed with the vendor/bundle name, eg: `fm_search.foo`. The rest of the id *should* reference the class' namespace. However if the context of the service implies something different, this *may* vary.
+
 ## Events, listeners and subscribers
 
-As per Symfony2 conventions, event classes are located and named as followed:
+As per Symfony2 conventions, event classes *must be* located and named as followed:
 
 * Events class (defining various events via constants) in the bundle root
 * Event classes in the `Event` folder
