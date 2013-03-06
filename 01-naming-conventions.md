@@ -12,8 +12,12 @@ For example a command that creates a user in the CmsBundle should be named `cms:
 
 ## Bundles
 
+External bundles (distributed via composer):
 * Composer name: `fm/feature-bundle`
-* GitHub repo name: `FeatureBundle`
-* Namespace binnen Symfony: `FM\FeatureBundle`
-* Bundle naam binnen Symfony: `FMFeatureBundle`
+* GitHub repo name: `FMFeatureBundle`
+* Namespace: `FM\FeatureBundle`
+* Bundle name: `FMFeatureBundle`
 
+Internal bundles (in `src` folder):
+* Namespace: `FM\FeatureBundle`
+* Bundle name: `FMFeatureBundle`
