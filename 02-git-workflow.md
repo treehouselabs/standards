@@ -13,4 +13,4 @@ When you get a conflict you have to fix it and add the file(s) back to the index
 
 When all is set push to origin with: 
 
-`git push origin my-feature-branch`
+`git push origin my-feature-branch -f`
