@@ -1,6 +1,14 @@
 GIT Workflow
 ============
 
+## Feature branches
+
+Working on a project starts with creating a feature branch.
+
+## Pull requests
+
+When work on your feature is done, you send a Pull Request. Your PR will then be reviewed by your colleagues and merged.
+
 ## Rebase
 
 To rebase follow these instructions:
