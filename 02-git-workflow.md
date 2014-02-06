@@ -3,7 +3,7 @@ GIT Workflow
 
 ## Feature branches
 
-Working on a project starts with creating a feature branch.
+Working on a project starts with creating a feature branch based from (an up-to-date) master.
 
 ## Pull requests
 
