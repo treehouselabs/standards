@@ -1,6 +1,36 @@
 GIT Workflow
 ============
 
+TL;DR
+
+**First time you start working on a project:**
+
+1. Fork repository via Github.com
+2. Clone your fork: `git clone git@github.com:<username>/project.git`
+3. Add upstream remote: `git remote add upstream git@github.com:financial-media/project.git`
+
+**When working on a new feature/issue:**
+
+1. `git fetch --all`
+2. `git checkout master`
+3. `git reset --hard upstream/master`
+4. `git checkout -b my-branch` (see [Creating a branch](#creating-a-branch))
+5. `git commit`
+6. `git push origin my-branch`
+7. Create pull request from your fork on Github.com (see [Pull requests](#pull-requests))
+8. Your PR will be reviewed by a colleague
+ 
+**Updating a pull request:**
+
+1. `git checkout my-branch`
+2. `git fetch upstream`
+3. `git rebase upstream/master` (see [Rebase](#rebase))
+4. Fix any conflicts -> `git add <file>` -> `git rebase --continue` -> (repeat)
+5. `git push origin my-branch -f`
+6. Your PR will be reviewed by a colleague and merged
+
+More details below:
+
 ## Creating a branch
 
 Working on a new feature for a project? Start by creating a feature-branch first (start your branch name with ``feature-``).
@@ -16,8 +46,9 @@ Basicallly, here's how a it goes:
 1. Someone creates an issue, or you have a great idea for a new feature
 2. First, make sure your local master is updated to prevent already starting on the wrong foot (being forced to rebase)
 
+        git fetch --all
         git checkout master
-        git pull
+        git reset --hard upstream/master
 
 2. You create a new branch on your local repository:
 
@@ -33,7 +64,7 @@ Basicallly, here's how a it goes:
 
         git push origin my-branch
 
-4. Go to the repository on http://github.com/financial-media/name-of-the-repository-here
+4. Go to the repository on http://github.com/<username>/name-of-the-repository-here
 5. You will see a yellow alert-bar with the name of your branch and a button to view it and/or create a PR from it. Click the button.
 6. You will be taken to a page where you can confirm the title and description of the PR. When done, click the confirmation button to create the actual PR.
 
@@ -59,8 +90,8 @@ Although this specific feature is marked as deprecated, there is no reason you c
 If you are asked to 'rebase' your PR:
 
 1. Make sure you have your branch checked out `git checkout my-branch`
-2. Then update with `git fetch`
-3. Now rebase with `git rebase origin/master`
+2. Then update with `git fetch --all`
+3. Now rebase with `git rebase upstream/master`
 4. When you get a conflict you have to fix it and add the file(s) back to the index with: `git add the-file-with-conflict-that-you-fixed.php`.
 5. When all conflicted files are added you can continue the rebasing with `git rebase --continue`.
 6. When all is set you can push to origin with: `git push origin my-branch -f`
@@ -70,14 +101,14 @@ If you are asked to 'rebase' your PR:
 1. If you are asked to 'squash your commits', do the following (note the `-i` option):
 
         git checkout my-branch
-        git fetch origin
-        git rebase -i origin/master
+        git fetch --all
+        git rebase -i upstream/master
 
 2. When prompted, mark your initial commit with *pick*, and all commits that have no real meaning with *squash*. If you are viewing this rebase in VIM (the default when using the command-line), you can then type ``:wq`` to get out of the editor and continue the rebase.
 3. You will be prompted with another editor-screen, this time you see all the squashed commits' messages merged into the first commit that was picked before it. It's nice to still see what commits were actually squashed so you can often leave this screen unchanged.
 4. Finally, push your changes via:
 
-        git push --force origin my-feature-branch
+        git push origin my-branch -f
 
 **NOTE:** You can also use PHPStorm to do the interactive rebase, offering some nicer GUI options for changing the messages etc. Check out the documentation for it [here](https://www.jetbrains.com/phpstorm/webhelp/rebasing-commits-dialog.html)
 
