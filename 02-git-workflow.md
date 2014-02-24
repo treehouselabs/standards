@@ -15,10 +15,11 @@ TL;DR
 2. `git checkout master`
 3. `git reset --hard upstream/master`
 4. `git checkout -b my-branch` (see [Creating a branch](#creating-a-branch))
-5. `git commit`
-6. `git push origin my-branch`
-7. Create pull request from your fork on Github.com (see [Pull requests](#pull-requests))
-8. Your PR will be reviewed by a colleague
+5. (work on the issue/feature)
+6. `git commit`
+7. `git push origin my-branch`
+8. Create pull request from your fork on Github.com (see [Pull requests](#pull-requests))
+9. Your PR will be reviewed by a colleague
  
 **Updating a pull request:**
 
