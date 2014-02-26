@@ -1,119 +1,195 @@
 GIT Workflow
 ============
 
-TL;DR
+This document describes the workflow that we use.
 
-**First time you start working on a project:**
+**Table of contents:**
+
+* [New projects](#new-projects)
+* [New feature/issue](#new-featureissue)
+  * [Update your fork](#update-your-fork)
+  * [Create new branch](#create-new-branch)
+  * [Submit your work as a pull-request](#submit-your-work-as-a-pull-request)
+* [Extra information](#extra-information)
+  * [Working on your patch](#working-on-your-patch)
+  * [Rebasing a pull request](#rebasing-a-pull-request)
+  * [Squashing commits](#squashing-commits)
+* [Hub](#hub)
+  * [Attaching commits to an existing issue](#attaching-commits-to-an-existing-issue)
+* [Relevant Resources](#relevant-resources)
+
+
+## New projects
+
+Every work you do is done in your own fork of the project you are working on.
 
 1. Fork repository via Github.com
 2. Clone your fork: `git clone git@github.com:<username>/project.git`
 3. Add upstream remote: `git remote add upstream git@github.com:financial-media/project.git`
 
-**When working on a new feature/issue:**
+Verify this using `git remote -v`, it should look like this:
 
-1. `git fetch --all`
-2. `git checkout master`
-3. `git reset --hard upstream/master`
-4. `git checkout -b my-branch` (see [Creating a branch](#creating-a-branch))
-5. (work on the issue/feature)
-6. `git commit`
-7. `git push origin my-branch`
-8. Create pull request from your fork on Github.com (see [Pull requests](#pull-requests))
-9. Your PR will be reviewed by a colleague
+```
+origin	git@github.com:<username>/<project>.git (fetch)
+origin	git@github.com:<username>/<project>.git (push)
+upstream	git@github.com:financial-media/<project> (fetch)
+upstream	git@github.com:financial-media/<project> (push)
+```
+
+
+## New feature/issue
+
+### Update your fork
+
+When starting to work on a new feature/issue, you need to update your fork to reflect the latest version of the upstream:
+
+```
+git fetch --all                  # fetches the latest changes from the remote repositories
+git checkout master              # selects the master branch 
+git reset --hard upstream/master # resets your branch to be exactly the same as the upstream
+```
+
+### Create new branch
+
+Now you can create a new branch off of your fork's master branch. It's common practice to name your branches after the feature or issue you're working on. Prefix the branch with `feature-` or `issue-123-` (where 123 is the issue number). For this example though we use `mybranch` for brevity:
+
+```
+git checkout -b mybranch
+```
+
+
+To visualize, your setup now looks like this:
+
+```
+  Project                 Your GH fork
++----------+            +--------------+
+|          |    fork    |              |
+| Upstream |  ------->  |    Origin    |
+|          |            |              |
+| [master] |            |   [master]   |
++----------+            +--------------+
+     ^                         ^
+     |                         |
+     | upstream         origin |
+     |                         |
+     |                         |
+     |       Working dir       |
+     |     +-------------+     |
+     |     |             |     |
+     |     |    Local    |     |
+     +---- |             | ----+
+           |   [master]  |
+           |  [mybranch] |
+           +-------------+
+```  
+
+Now you can work on the issue/feature.
+
+
+### Submit your work as a pull-request
+
+When you are done with the issue or feature, first make sure all the unit tests work. Then proceed with the following steps:
+
+1. Commit all outstanding changes (don't forget to add new files and remove deleted files, use a [GUI](http://mac.github.com) if you are unsure about this!):
+
+  ```
+  git add --all . # adds, modifies, and removes index entries to match the working tree 
+  git commit      # record changes to the repository
+  ```
+
+2. Make sure your branch does not have any conflicts with upstream. Perform a rebase to do this (see [rebasing](#rebasing-a-pull-request)):
+
+  ```
+  git fetch upstream         # fetch latest changes from upstream
+  git rebase upstream/master # resets your branch and applies your changes on top of it
+  ```
+
+3. Squash commits if necessary (see [Squashing commits](#squashing-commits))
+
+4. Now you're ready to submit your patch: `git push origin mybranch`. Go to the repository on `https://github.com/<username>/<project>`. You will see a yellow alert-bar with the name of your branch and a button to view it and/or create a PR from it. Click the button, you will be taken to a page where you can confirm the title and description of the PR. When done, click the confirmation button to create the actual PR.
+
+Done! Your PR will be reviewed by a colleague.
  
-**Updating a pull request:**
+ 
+## Extra information
 
-1. `git checkout my-branch`
+### Working on your patch
+Basically follow the [Symfony guidelines](http://symfony.com/doc/current/contributing/code/patches.html#work-on-your-patch) for this:
+
+> Work on the code as much as you want and commit as much as you want; but keep in mind the following:
+>
+> * Read about the Symfony [conventions](http://symfony.com/doc/current/contributing/code/conventions.html) and follow the [coding standards](http://symfony.com/doc/current/contributing/code/standards.html) (use git diff --check to check for trailing spaces -- also read the tip below);
+> * Add unit tests to prove that the bug is fixed or that the new feature actually works;
+> * Try hard to not break backward compatibility (if you must do so, try to provide a compatibility layer to support the old way) -- patches that break backward compatibility have less chance to be merged;
+> Do atomic and logically separate commits (use the power of git rebase to have a clean and logical history);
+> Squash irrelevant commits that are just about fixing coding standards or fixing typos in your own code;
+> Never fix coding standards in some existing code as it makes the code review more difficult;
+> Write good commit messages (see the tip below).
+
+### Rebasing a pull request
+
+Sometimes during the time you've been working on an issue, other changes have been merged into the project. This can lead to conflicts when submitting a pull request. To avoid this you can rebase your branch against upstream, which basically means: start over with the latest version, and re-apply my changes to that.
+
+It is good practice to always rebase before submitting a pull request, however an existing pull request may have to be rebased after upstream has been updated. If this happens you will be asked to rebase, unfortunately you cannot see this yourself.
+
+1. `git checkout mybranch`
 2. `git fetch upstream`
-3. `git rebase upstream/master` (see [Rebase](#rebase))
-4. Fix any conflicts -> `git add <file>` -> `git rebase --continue` -> (repeat)
-5. `git push origin my-branch -f`
-6. Your PR will be reviewed by a colleague and merged
-
-More details below:
-
-## Creating a branch
-
-Working on a new feature for a project? Start by creating a feature-branch first (start your branch name with ``feature-``).
-Working on an issue for a project? Start by creating an issue-branch (start your branch name with ``issue-123``, where 123 is the number of the issue). Jump straight to the [Hub documentation](#solving-an-issue-use-hub) to make your life easier!
-
-## Pull requests
-
-When work is done, you send a Pull Request. Your PR will then be reviewed by your colleagues and merged.
-We have described the process of committing and PR-ing below, but to learn more about creating pull-requests, read the [GitHub pull request documentation](https://help.github.com/articles/using-pull-requests).
-
-Basicallly, here's how a it goes:
-
-1. Someone creates an issue, or you have a great idea for a new feature
-2. First, make sure your local master is updated to prevent already starting on the wrong foot (being forced to rebase)
-
-        git fetch --all
-        git checkout master
-        git reset --hard upstream/master
-
-2. You create a new branch on your local repository:
-
-        git checkout -b my-branch
-
-3. You make the necessary fixes to solve the issue, using one or more commits in the new branch
-
-        git commit -m "fixed ..."
-        ...
-        git commit -m "replaced ..."
-
-3. You push this branch back to the origin:
-
-        git push origin my-branch
-
-4. Go to the repository on http://github.com/<username>/name-of-the-repository-here
-5. You will see a yellow alert-bar with the name of your branch and a button to view it and/or create a PR from it. Click the button.
-6. You will be taken to a page where you can confirm the title and description of the PR. When done, click the confirmation button to create the actual PR.
-
-### Solving an issue? Use Hub!
-
-Often you may just be solving an issue that has already been created by someone on the GitHub repository.
-
-Now, instead of creating a separate PR for the issue, and then referring to this issue from within your PR, you can make this all a lot easier using a neat tool called [Hub](https://github.com/github/hub).
-
-Specifically, it's ``pull-request -i [id-of-the-issue-here]`` command which basically converts a given issue into a PR using the branch you have checked out.
-Although this specific feature is marked as deprecated, there is no reason you can't use it for the time being. So here's how it works:
-
-1. Make sure you have already pushed your branch at least once to the origin (don't create a PR yet, though!)
-2. Using the Terminal, navigate to the directory where you have checked out your branch.
-3. Run the following command: ``hub pull-request -i 123``
-4. You will get a warning the command is deprecated, which you can ignore for now.
-5. If all is well you will get a simple confirmation message containing the URL to the created PR.
-6. Go ahead and browse to the given URL, the entire issue (with all it's comments) has been converted into a PR! You will get excited now...
-7. You can continue working on your PR in the meantime; any additional changes will be shown on this very page, and others can see what is happening without having to know whether someone already created a PR for their issue.
-
-## Rebase
-
-If you are asked to 'rebase' your PR:
-
-1. Make sure you have your branch checked out `git checkout my-branch`
-2. Then update with `git fetch --all`
-3. Now rebase with `git rebase upstream/master`
-4. When you get a conflict you have to fix it and add the file(s) back to the index with: `git add the-file-with-conflict-that-you-fixed.php`.
+3. `git rebase upstream/master`
+4. Sometimes files cannot be automatically merged, the rebase command will tell you about these files. Fix these files and add them back to the index with: `git add the-file-that-you-fixed`.
 5. When all conflicted files are added you can continue the rebasing with `git rebase --continue`.
-6. When all is set you can push to origin with: `git push origin my-branch -f`
+5. `git push origin mybranch` (use `--force` if your branch is already pushed to remote, note that this rewrites history)
 
-## Squashing commits
+**About using the force:**
 
-1. If you are asked to 'squash your commits', do the following (note the `-i` option):
+> When doing a `push --force`, always specify the branch name explicitly to avoid messing other branches in the repo (`--force` tells Git that you really want to mess with things so do it carefully).
+>
+> http://symfony.com/doc/current/contributing/code/patches.html#rework-your-patch
 
-        git checkout my-branch
-        git fetch --all
-        git rebase -i upstream/master
 
-2. When prompted, mark your initial commit with *pick*, and all commits that have no real meaning with *squash*. If you are viewing this rebase in VIM (the default when using the command-line), you can then type ``:wq`` to get out of the editor and continue the rebase.
-3. You will be prompted with another editor-screen, this time you see all the squashed commits' messages merged into the first commit that was picked before it. It's nice to still see what commits were actually squashed so you can often leave this screen unchanged.
-4. Finally, push your changes via:
+### Squashing commits
 
-        git push origin my-branch -f
+Squashing commits means converting multiple commits into one commit. This is done to prevent meaningless commits (code style fixes, typo fixes, 'wip', etc). Sometimes you will be asked to squash your commits. But you are encouraged to check this yourself before submitting a pull request. Keep in mind that every commit will be merged, and we like a readable log, without dozens of 'CS fix' commits.
 
-**NOTE:** You can also use PHPStorm to do the interactive rebase, offering some nicer GUI options for changing the messages etc. Check out the documentation for it [here](https://www.jetbrains.com/phpstorm/webhelp/rebasing-commits-dialog.html)
+You can squash commits using an interactive rebase:
 
-## Relevant Resources
+```
+git checkout mybranch
+git fetch --all
+git rebase -i upstream/master
+```
 
+This will open your default editor (probably vim). In the editor, mark your initial commit with `pick`, and all commits that have no real meaning with `squash`. Save your changes and you will be prompted with another editor-screen. This time you'll see all the squashed commits merged into the first commit that was picked before it. It's nice to still see what commits were actually squashed so you can often leave this screen unchanged.
+
+When you're done you can push your changes:
+
+```
+git push origin mybranch --force
+```
+
+See [this tutorial](http://phuu.net/2014/02/24/rebase-you-interactively-for-great-good.html) for an extensive example.
+
+**NOTE:** You can also use PHPStorm to do the interactive rebase, offering some nicer GUI options for changing the messages etc. Check out the documentation for it [here](https://www.jetbrains.com/phpstorm/webhelp/rebasing-commits-dialog.html).
+
+
+## Hub
+
+It's recommended to use [Hub](https://github.com/github/hub): Github's tool that adds some flavour and commands to the git command line interface. You can read their documentation, but we'll give one example here that we use:
+
+### Attaching commits to an existing issue
+
+When working on an issue, you can attach your commits to that issue instead of creating a separate pull request. Although this specific feature is marked as deprecated, we still use it until Github recommends a different approach as good practice.
+
+To create a pull request of your current branch, perform the following steps:
+
+1. Make sure you have already pushed your branch (don't create a PR yet, though!)
+2. Run the following command: `hub pull-request -i 123` where `123` is the issue number.
+3. If all is well you will get a simple confirmation message containing the URL to the created PR.
+4. You can continue working on your PR in the meantime; any additional pushed commits will be added to the PR.
+
+
+## Relevant resources
+
+* [GitHub pull request documentation](https://help.github.com/articles/using-pull-requests)
 * [Hub](https://github.com/github/hub)
 * [Git merge vs. rebase](http://mislav.uniqpath.com/2013/02/merge-vs-rebase/)
+* [Rebase you interactively for great good](http://phuu.net/2014/02/24/rebase-you-interactively-for-great-good.html)
