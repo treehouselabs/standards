@@ -173,7 +173,7 @@ See [this tutorial](http://phuu.net/2014/02/24/rebase-you-interactively-for-grea
 
 ## Hub
 
-It's recommended to use [Hub](https://github.com/github/hub): Github's tool that adds some flavour and commands to the git command line interface. You can read their documentation, but we'll give one example here that we use:
+It's recommended to use [Hub](http://hub.github.com): Github's tool that adds some flavour and commands to the git command line interface. You can read their documentation, but we'll give one example here that we use:
 
 ### Attaching commits to an existing issue
 
@@ -190,6 +190,6 @@ To create a pull request of your current branch, perform the following steps:
 ## Relevant resources
 
 * [GitHub pull request documentation](https://help.github.com/articles/using-pull-requests)
-* [Hub](https://github.com/github/hub)
+* [Hub](http://hub.github.com)
 * [Git merge vs. rebase](http://mislav.uniqpath.com/2013/02/merge-vs-rebase/)
 * [Rebase you interactively for great good](http://phuu.net/2014/02/24/rebase-you-interactively-for-great-good.html)
