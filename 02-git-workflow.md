@@ -155,7 +155,7 @@ You can squash commits using an interactive rebase:
 ```
 git checkout mybranch
 git fetch --all
-git rebase -i upstream/master
+git rebase -i origin/master
 ```
 
 This will open your default editor (probably vim). In the editor, mark your initial commit with `pick`, and all commits that have no real meaning with `squash`. Save your changes and you will be prompted with another editor-screen. This time you'll see all the squashed commits merged into the first commit that was picked before it. It's nice to still see what commits were actually squashed so you can often leave this screen unchanged.
