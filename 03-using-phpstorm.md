@@ -16,7 +16,7 @@ To keep a consistent codestyle in our projects, you are advised to use the style
 3. Navigate to ``Code Style > PHP``.
 4. Select ``TreeHouse`` from the styles in the dropdown at the top.
 5. Click OK at the bottom to confirm the change.
-6. You can now press Ctrl+Alt+L (or any other combination you want) to apply the style to the current file.
+6. You can now press Cmd+Alt+L (MacOS) or Ctrl+Alt+L (Windows/Linux), or any other combination you added under ``Keymap`` preferences, to apply the style to the current file.
 
 
 ## Using PHP-CS-Fixer
