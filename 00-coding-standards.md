@@ -19,3 +19,6 @@ We know that strictly speaking it's best practice to keep visibility as low as p
 
 The convention for properties also largely applies for methods: `protected` by default, `private` only when you're absolutely sure it will not (or must not) be extended. Use `public` when you need the method outside of the class in your current issue, or if you think that is likely to happen later.
 
+## Inject the ManagerRegistry instead of the EntityManager
+
+See [this article](http://php-and-symfony.matthiasnoback.nl/2014/05/inject-the-manager-registry-instead-of-the-entity-manager/) (and the comments) for the reasons why.
