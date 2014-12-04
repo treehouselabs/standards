@@ -26,6 +26,21 @@ Internal bundles (in `src` folder):
 
 All services *must be* be prefixed with the vendor/bundle name, eg: `fm_search.foo`. The rest of the id *should* follow the rest of the class' namespace, but this *may* vary. For example if a service is located at `FM\CacheBundle\EventListener\EntityListener.php`, the id could be `fm_cache.listener.entity`.
 
+## Doctrine
+
+We use the underscore naming strategy for all our projects:
+
+```yaml
+# app/config/config.yml
+doctrine:
+  orm:
+    naming_strategy: doctrine.orm.naming_strategy.underscore
+```
+
+### Date/time properties
+
+All date/datetime properties *must be* prefixed with that type, for instance: `datetimeCreated` and `datetimeModified`. This helps identifying the purpose of the property, since `modified` could also mean a boolean.
+
 ## Events, listeners and subscribers
 
 As per Symfony2 conventions, event classes *must be* located and named as followed:
