@@ -5,6 +5,34 @@ We follow the [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accep
 
 We've listed some [tools](04-tools.md) to assist with this coding style.
 
+## PHPDoc
+
+Although the PSR is not yet accepted, we are using the [proposed standard](https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md) for PHPDoc.
+
+### Basic usage
+
+If you look at the screenshot below, all boxes are checked (except the fully-qualified class one), that aligned `@param`'s, with empty lines around them, like so:
+
+```php
+/**
+ * Method description
+ *
+ * @param string  $foo
+ * @param boolean $bar
+ *
+ * @return integer
+ */
+```
+
+The `{@inheritdoc}` tag is inline in the proposal. However it is discussed to just use a regular `@inheritdoc` tag, which some prefer. Until this seems to get a resolution, either way is accepted.
+
+### `@type` instead of `@var`
+
+Something that has changed is the deprecation of `@var` in favor of `@type`. By default, PHPStorm uses `@var`, you can change this behaviour in Settings > Code Style > PHP:
+
+![Setting the type tag in PHPStorm](/assets/screenshots/phpstorm-phpdoc-type.png)
+
+
 ## Visibility
 
 ### Class properties
