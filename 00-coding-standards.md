@@ -26,12 +26,6 @@ If you look at the screenshot below, all boxes are checked (except the fully-qua
 
 The `{@inheritdoc}` tag is inline in the proposal. However it is discussed to just use a regular `@inheritdoc` tag, which some prefer. Until this seems to get a resolution, either way is accepted.
 
-### `@type` instead of `@var`
-
-Something that has changed is the deprecation of `@var` in favor of `@type`. By default, PHPStorm uses `@var`, you can change this behaviour in Settings > Code Style > PHP:
-
-![Setting the type tag in PHPStorm](/assets/screenshots/phpstorm-phpdoc-type.png)
-
 
 ## Visibility
 
