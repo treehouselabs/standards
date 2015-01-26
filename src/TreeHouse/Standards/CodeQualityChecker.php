@@ -54,8 +54,6 @@ class CodeQualityChecker extends Application
 
         $files = $this->getCommittedFiles();
 
-        $this->output('Looking for staged files', OutputInterface::VERBOSITY_VERY_VERBOSE);
-
         $checks = [
             'composer' => 'checkComposer',
             'phplint'  => 'lintPhp',
