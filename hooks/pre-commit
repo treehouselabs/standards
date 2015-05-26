@@ -1,5 +1,5 @@
 #!/bin/sh
 
-./bin/code-qa --bin-dir="%bin_dir%"
+./bin/code-qa -vvv
 
 exit $?
