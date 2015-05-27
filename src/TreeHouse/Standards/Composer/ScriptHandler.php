@@ -18,7 +18,7 @@ class ScriptHandler
         $hook    = __DIR__ . '/../../../../hooks/pre-commit';
         $gitHook = $vendor . '/../.git/hooks/pre-commit';
 
-        if (file_exists($gitHook)) {
+        if (file_exists($gitHook) || !is_dir(dirname($gitHook))) {
             return;
         }
 
