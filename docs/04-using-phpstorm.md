@@ -15,7 +15,7 @@ To use PHP-CS-Fixer inside PHPStorm, simply follow the steps below:
 4. Click the little plus-icon on the bottom to add a new tool
 5. Set the fields to be the same as seen in this screenshot: ![PHP-CS-Fixer in PHPStorm][cs-fixer]
 
-[cs-fixer]: assets/screenshots/php-cs-fixer-in-phpstorm.png
+[cs-fixer]: /assets/screenshots/php-cs-fixer-in-phpstorm.png
 
 
 ### Keyboard shortcut
@@ -30,4 +30,4 @@ using the steps below:
    like this: ![Keyboard-shortcut for PHP-CS-Fixer][kbd-shortcut]
 4. To assign a keyboard-shortcut, simply double-click on `php-cs-fixer` and click `Add keyboard shortcut`.
 
-[kbd-shortcut]: assets/screenshots/php-cs-fixer-keyboard-shortcut.png
+[kbd-shortcut]: /assets/screenshots/php-cs-fixer-keyboard-shortcut.png
