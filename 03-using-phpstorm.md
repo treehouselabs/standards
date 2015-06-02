@@ -11,7 +11,7 @@ and then apply them with a single hotkey to the file you are currently editing.
 These options can be changed, saved and then exported for use by others.
 To keep a consistent codestyle in our projects, you are advised to use the style shown below:
 
-1. Copy the file from [here](assets/codestyles/TreeHouse.xml) and save it under ``~/Library/Preferences/WebIde70/codestyles/TreeHouse.xml``
+1. Copy the file from [here](assets/codestyles/TreeHouse.xml) and save it under ``~/Library/Preferences/WebIde80/codestyles/TreeHouse.xml``
 2. Open PHPStorm's preferences.
 3. Navigate to ``Code Style > PHP``.
 4. Select ``TreeHouse`` from the styles in the dropdown at the top.
