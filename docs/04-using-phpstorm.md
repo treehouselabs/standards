@@ -11,7 +11,7 @@ and then apply them with a single hotkey to the file you are currently editing.
 These options can be changed, saved and then exported for use by others.
 To keep a consistent codestyle in our projects, you are advised to use the style shown below:
 
-1. Copy the file from [here](assets/codestyles/TreeHouse.xml) and save it under ``~/Library/Preferences/WebIde80/codestyles/TreeHouse.xml``
+1. Copy the file from [here](/assets/codestyles/TreeHouse.xml) and save it under ``~/Library/Preferences/WebIde80/codestyles/TreeHouse.xml``
 2. Open PHPStorm's preferences.
 3. Navigate to ``Code Style > PHP``.
 4. Select ``TreeHouse`` from the styles in the dropdown at the top.
@@ -29,7 +29,7 @@ To use PHP-CS-Fixer inside PHPStorm, simply follow the steps below:
 2. Launch PHPStorm
 3. Go to ``Preferences`` and then to ``External tools`` in the list of options on the left.
 4. Click the little plus-icon on the bottom to add a new tool
-5. Set the fields to be the same as seen in this screenshot: ![PHP-CS-Fixer in PHPStorm](assets/screenshots/php-cs-fixer-in-phpstorm.png)
+5. Set the fields to be the same as seen in this screenshot: ![PHP-CS-Fixer in PHPStorm](/assets/screenshots/php-cs-fixer-in-phpstorm.png)
 
 
 ### Keyboard shortcut
@@ -38,7 +38,7 @@ To easily run PHP-CS-Fixer on a file you currently have open, you can add a keyb
 
 1. If you have the ``Preferences`` window open, close it now. This is important for the new external tool to be visible in the next steps.
 2. Go to ``Preferences`` and then to ``Keymap`` in the list of options on the left.
-3. Use the search field in the top-right corner and start typing ``php-cs-fixer``, your screen should now look somewhat like this: ![Keyboard-shortcut for PHP-CS-Fixer](assets/screenshots/php-cs-fixer-keyboard-shortcut.png)
+3. Use the search field in the top-right corner and start typing ``php-cs-fixer``, your screen should now look somewhat like this: ![Keyboard-shortcut for PHP-CS-Fixer](/assets/screenshots/php-cs-fixer-keyboard-shortcut.png)
 4. To assign a keyboard-shortcut, simply double-click on ``php-cs-fixer`` and click ``Add keyboard shortcut``.
 
 
