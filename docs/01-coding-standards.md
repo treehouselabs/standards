@@ -38,3 +38,41 @@ your current issue, or if you think that is likely to happen later.
 See [this article][5] (and the comments) for the reasons why.
 
 [5]: http://php-and-symfony.matthiasnoback.nl/2014/05/inject-the-manager-registry-instead-of-the-entity-manager/
+
+## Doctrine entities
+* fields must be `protected`
+* mapping via annotations
+* no `name` attribute in mapping (use the naming strategy)
+* no `length` attribute for strings if it's the default (255)
+* 
+
+### Getters, setters, issers, etc
+* setters before getters
+* no meaningless "set field" comments
+* use issers for booleans
+* setters must be chainable (doc with `@return $this` for extensibility)
+* collections must have a getter, adder and remover. No more, no less.
+ 
+Example:
+
+```php
+/**
+ * @param string $email
+ *
+ * @return $this
+ */
+public function setEmail($email)
+{
+    $this->email = $email;
+
+    return $this;
+}
+
+/**
+ * @return string
+ */
+public function getEmail()
+{
+    return $this->email;
+}
+```
