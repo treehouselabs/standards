@@ -44,7 +44,7 @@ See [this article][5] (and the comments) for the reasons why.
 * mapping via annotations
 * no `name` attribute in mapping (use the naming strategy)
 * no `length` attribute for strings if it's the default (255)
-* 
+* typehint as much as possible, eg `\DateTime` is not typehinted when you generate getters/setters
 
 ### Getters, setters, issers, etc
 * setters before getters
