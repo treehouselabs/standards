@@ -77,6 +77,6 @@ public function getEmail()
 }
 ```
 
-Various:
+## Various
 
 * For improved readability, use `sprintf` to format variables in a string, instead of concatenating
