@@ -80,3 +80,4 @@ public function getEmail()
 ## Various
 
 * For improved readability, use `sprintf` to format variables in a string, instead of concatenating
+* Where possible, always use trailing commas (PHP arrays, annotations, etc.). [This](https://twitter.com/umpirsky/status/611799916206276608) is one reason, easily copy/pasting a new row is another
