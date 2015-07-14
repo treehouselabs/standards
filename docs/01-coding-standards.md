@@ -76,3 +76,7 @@ public function getEmail()
     return $this->email;
 }
 ```
+
+Various:
+
+* For improved readability, use `sprintf` to format variables in a string, instead of concatenating
