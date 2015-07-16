@@ -77,6 +77,38 @@ public function getEmail()
 }
 ```
 
+## Inheritance in docblocks
+
+Where possible, add a docblock with the `@inherit` tag to any overriding method in a subclass (or methods that are interface implementations). **Do not** use the inline `{@inheritdoc}` tag, as that is used to include the parent method description, not the whole parent docblock. Also, lowercase the whole tag, no `@inheritDoc`:
+
+```php
+/*
+ * @inheritdoc
+ */
+```
+
+In some cases it can be helpful to extend a part of the parent's docblock. For instance when you are using a more specific class name as an argument. In this case you can add that below the `@inherit` tag:
+
+```php
+interface A 
+{
+    /**
+     * @param A $a
+     */
+    public function foo(A $a);
+}
+
+class B implements A
+{
+    /**
+     * @inheritdoc
+     *
+     * @param B $a
+     */
+    public function foo(A $a);
+}
+```
+
 ## Various
 
 * For improved readability, use `sprintf` to format variables in a string, instead of concatenating
