@@ -109,6 +109,12 @@ class B implements A
 }
 ```
 
+For the why on this, here are the arguments from Mike van Riel (the PhpDoc guy), with whom we agree:
+
+> * Reduces time to consider: because there is a DocBlock you never have to wonder if it was omitted on purpose or that it was accidentally forgotten during code reviews or boy scouting
+> * Increases ease of skimming a code base: if you consistently use DocBlocks with all your elements then your eyes will get used to the pattern of having a DocBlock with every element and this increases the speed with which you can find and determine structural elements in your code.
+> * When someone reads your source code it will be immediately clear that they are dealing with an inherited element; helping them to navigate your codebase.
+
 ## Various
 
 * For improved readability, use `sprintf` to format variables in a string, instead of concatenating
