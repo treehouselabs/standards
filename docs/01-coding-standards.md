@@ -105,7 +105,7 @@ class B implements A
      *
      * @param B $a
      */
-    public function foo(A $a);
+    public function foo(A $a) {}
 }
 ```
 
