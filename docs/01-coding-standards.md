@@ -15,7 +15,7 @@ We've listed some [tools][4] to assist with this coding style.
 
 ### Class properties
 
-The preferred visibility for class properties is `protected`, and it should almost never by anything else, unless
+The preferred visibility for class properties is `protected`, and it should almost never be anything else, unless
 there's a clear and valid reason for it.
 
 #### To elaborate
