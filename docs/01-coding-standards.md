@@ -93,6 +93,8 @@ In some cases it can be helpful to extend a part of the parent's docblock. For i
 interface A 
 {
     /**
+     * Creates a new foo by adding some bars
+     *
      * @param A $a
      */
     public function foo(A $a);
@@ -105,7 +107,9 @@ class B implements A
      *
      * @param B $a
      */
-    public function foo(A $a) {}
+    public function foo(B $a) {
+        // ...
+    }
 }
 ```
 
