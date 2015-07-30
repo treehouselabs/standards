@@ -124,3 +124,4 @@ For the why on this, here are the arguments from Mike van Riel (the PhpDoc guy),
 * For improved readability, use `sprintf` to format variables in a string, instead of concatenating
 * Always import classes with `use` statements. This results in shorter, more readable code and makes refactoring easier, as all external classes are grouped together
 * Where possible, always use trailing commas (PHP arrays, annotations, etc.). [This](https://twitter.com/umpirsky/status/611799916206276608) is one reason, easily copy/pasting a new row is another
+* Make Symfony services private by default. This enables the possibility of [inlining services](http://symfony.com/doc/current/components/dependency_injection/advanced.html#marking-services-as-public-private).
