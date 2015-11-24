@@ -24,7 +24,7 @@ For other platforms, follow the instructions in [their documentation](https://gi
 
 ### Conveyor
 
-All of our Symfony projects are deployed using Conveyor. Here's how you deploy a project yourself:
+All of our Symfony projects are deployed using [Conveyor](https://github.com/webcreate/conveyor). Here's how you deploy a project yourself:
 
 1. Clone the Conveyor repository: 
 
