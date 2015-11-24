@@ -30,6 +30,8 @@ All of our Symfony projects are deployed using Conveyor. Here's how you deploy a
   ```
   $ cd ~/git
   $ git clone https://github.com/webcreate/conveyor
+  $ cd conveyor
+  $ composer install
   ```
 2. Navigate to your project directory:
   ```
