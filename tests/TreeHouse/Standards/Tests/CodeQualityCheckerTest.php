@@ -42,6 +42,6 @@ class CodeQualityCheckerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($result);
         $this->assertContains('Code Style errors found', $buffer);
-        $this->assertContains('short_array_syntax', $buffer);
+        $this->assertContains('+ [ \'foo\' => \'bar\' ]  ;', $buffer);
     }
 }
