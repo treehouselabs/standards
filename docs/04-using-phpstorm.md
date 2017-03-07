@@ -21,7 +21,7 @@ To keep a consistent codestyle in our projects, you are advised to use the style
 
 ## Using PHP-CS-Fixer
 
-[PHP-CS-Fixer](https://github.com/fabpot/PHP-CS-Fixer) is another tool to apply proper standards to your code.
+[PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) is another tool to apply proper standards to your code.
 Fortunately, it works together with the code style mentioned above.
 To use PHP-CS-Fixer inside PHPStorm, simply follow the steps below:
 
@@ -29,7 +29,7 @@ To use PHP-CS-Fixer inside PHPStorm, simply follow the steps below:
 2. Launch PHPStorm
 3. Go to ``Preferences`` and then to ``External tools`` in the list of options on the left.
 4. Click the little plus-icon on the bottom to add a new tool
-5. Set the fields to be the same as seen in this screenshot: ![PHP-CS-Fixer in PHPStorm](/assets/screenshots/php-cs-fixer-in-phpstorm.png)
+5. Set the fields to be the same as seen in this screenshot: ![screenshot 2017-03-07 16 38 56](https://cloud.githubusercontent.com/assets/1062751/23663985/94b821ec-0354-11e7-9544-daccd767a669.png)
 
 
 ### Keyboard shortcut
