@@ -7,7 +7,7 @@ use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\ProcessBuilder;
-use Symfony\CS\Console\Command\FixCommand;
+use PhpCsFixer\Console\Command\FixCommand;
 use Webmozart\PathUtil\Path;
 
 class CodeQualityChecker
@@ -105,18 +105,17 @@ class CodeQualityChecker
         $configFile = $rootDir . '/.php_cs';
 
         if (file_exists($configFile)) {
-            $args['--config-file'] = $configFile;
+            $args['--config'] = $configFile;
             $result = $this->runPhpCsFixer($args, $rootDir, $result);
         } else {
-            $args['--level']  = 'symfony';
-            $args['--fixers'] = 'align_double_arrow,align_equals,concat_with_spaces,newline_after_open_tag,ordered_use,phpdoc_order,short_array_syntax,-empty_return';
+            $args['--rules'] = '{"array_syntax": {"syntax": "short"}}';
 
             foreach ($files as $file) {
                 if (!preg_match('#\.php$#', $file)) {
                     continue;
                 }
 
-                if (!$this->runPhpCsFixer(array_merge($args, ['path' => $file]), $rootDir, $result)) {
+                if (!$this->runPhpCsFixer(array_merge($args, ['path' => [$file]]), $rootDir, $result)) {
                     $result = false;
                 }
             }
