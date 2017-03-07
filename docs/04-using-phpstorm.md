@@ -29,7 +29,7 @@ To use PHP-CS-Fixer inside PHPStorm, simply follow the steps below:
 2. Launch PHPStorm
 3. Go to ``Preferences`` and then to ``External tools`` in the list of options on the left.
 4. Click the little plus-icon on the bottom to add a new tool
-5. Set the fields to be the same as seen in this screenshot: ![screenshot 2017-03-07 16 38 56](https://cloud.githubusercontent.com/assets/1062751/23663985/94b821ec-0354-11e7-9544-daccd767a669.png)
+5. Set the fields to be the same as seen in this screenshot: ![screenshot 2017-03-07 17 12 03](https://cloud.githubusercontent.com/assets/1062751/23665599/382ff3d2-0359-11e7-83b4-2269d3f7c457.png)
 
 
 ### Keyboard shortcut
