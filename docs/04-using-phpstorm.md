@@ -25,11 +25,11 @@ To keep a consistent codestyle in our projects, you are advised to use the style
 Fortunately, it works together with the code style mentioned above.
 To use PHP-CS-Fixer inside PHPStorm, simply follow the steps below:
 
-1. Make sure PHP-CS-Fixer is installed **globally** (e.g. you are able to run it from the command line using ``php-cs-fixer``)
+1. Make sure PHP-CS-Fixer is installed as either installed as a (require-dev) dependency in your project, or **globally** (e.g. you are able to run it from the command line using ``php-cs-fixer``).
 2. Launch PHPStorm
 3. Go to ``Preferences`` and then to ``External tools`` in the list of options on the left.
 4. Click the little plus-icon on the bottom to add a new tool
-5. Set the fields to be the same as seen in this screenshot: ![screenshot 2017-03-07 17 12 03](https://cloud.githubusercontent.com/assets/1062751/23665599/382ff3d2-0359-11e7-83b4-2269d3f7c457.png)
+5. Set the fields to be the same as seen in this screenshot (take not of the "Program" field, this depends on the location you installed PHP-CS-Fixer in, see step 1): ![screenshot 2017-03-07 17 12 03](https://cloud.githubusercontent.com/assets/1062751/23665599/382ff3d2-0359-11e7-83b4-2269d3f7c457.png)
 
 
 ### Keyboard shortcut
