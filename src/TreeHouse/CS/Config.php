@@ -28,7 +28,7 @@ class Config extends BaseConfig
             '@Symfony:risky' => true,
             'align_multiline_comment' => true,
             'array_syntax' => [
-                'syntax' => 'short'
+                'syntax' => 'short',
             ],
             'combine_consecutive_unsets' => true,
             'concat_space' => [
