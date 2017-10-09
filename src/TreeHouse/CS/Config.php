@@ -39,6 +39,7 @@ class Config extends BaseConfig
             'list_syntax' => [
                 'syntax' => 'short',
             ],
+            'ordered_imports' => true,
             'phpdoc_add_missing_param_annotation' => true,
             'phpdoc_inline_tag' => false,
             'phpdoc_order' => true,
