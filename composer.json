@@ -4,12 +4,8 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Peter Kruithof",
-      "email": "peter@treehouse.nl"
-    },
-    {
-      "name": "Jeroen Fiege",
-      "email": "jeroen@treehouse.nl"
+      "name": "TreeHouse development",
+      "email": "dev@treehouse.nl"
     }
   ],
   "config": {
@@ -25,12 +21,12 @@
   },
   "autoload": {
     "psr-4": {
-      "TreeHouse\\": "src/TreeHouse/"
+      "TreeHouse\\CS\\": "src/TreeHouse/CS/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Test\\": "tests/"
+      "Test\\TreeHouse\\CS\\": "test/TreeHouse/CS/"
     }
   }
 }
