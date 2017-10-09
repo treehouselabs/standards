@@ -1,17 +1,25 @@
-sudo: false
 language: php
-
-php:
-  - 7.1
 
 matrix:
   fast_finish: true
+  include:
+    - php: 7.1
+      env:
+        - DEPENDENCIES=""
+    - php: 7.1
+      env:
+        - DEPENDENCIES="--prefer-lowest --prefer-stable"
 
-install:
-  - composer self-update
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.php-cs-fixer
 
 before_script:
-  - composer install --no-interaction
+  - phpenv config-rm xdebug.ini
+  - composer self-update
+  - composer update --prefer-dist $DEPENDENCIES
 
 script:
   - ./vendor/bin/phpunit
+  - ./vendor/bin/php-cs-fixer fix -v --diff --dry-run

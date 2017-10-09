@@ -1,33 +1,36 @@
 {
   "name": "treehouselabs/standards",
   "description": "Development standards by and for TreeHouse employees",
+  "license": "MIT",
   "authors": [
     {
       "name": "Peter Kruithof",
       "email": "peter@treehouse.nl"
-    },    {
+    },
+    {
       "name": "Jeroen Fiege",
       "email": "jeroen@treehouse.nl"
     }
   ],
+  "config": {
+    "bin-dir": "bin",
+    "sort-packages": true
+  },
   "require": {
-    "php": ">=7.0",
-    "composer/composer": "^1.0",
-    "friendsofphp/php-cs-fixer": "^2.1",
-    "webmozart/path-util": "^2.0"
+    "php": ">=7.1",
+    "friendsofphp/php-cs-fixer": "^2.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "~4.4"
+    "phpunit/phpunit": "^6.4"
   },
   "autoload": {
     "psr-4": {
-      "TreeHouse\\Standards\\": "src/TreeHouse/Standards/"
+      "TreeHouse\\": "src/TreeHouse/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "TreeHouse\\Standards\\Tests\\": "tests/TreeHouse/Standards/Tests/"
+      "Test\\": "tests/"
     }
-  },
-  "bin": ["bin/code-qa"]
+  }
 }
